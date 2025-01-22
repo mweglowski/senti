@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Kavoon&display=swap");
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "K2D";
+}
+
+.logo-title {
+  font-family: "Kavoon";
+  font-weight: 600;
+  color: rgb(7, 7, 205);
+  font-size: 24px;
+}
+
+.input {
+  @apply bg-[#f1f1f1] p-2 px-4 text-black placeholder:text-[#404040] outline-none w-full;
+}
+
+::-webkit-scrollbar {
+	@apply w-[6px] h-[12px];
+  }
+  ::-webkit-scrollbar-track {
+	background: #e5e8ec;
+  }
+  ::-webkit-scrollbar-thumb {
+	background: #0222bf;
+	border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+	@apply cursor-pointer;
+  }
