@@ -44,11 +44,11 @@ const HomePage = () => {
     }
 
     try {
-      // setUpdating(true);
+      setUpdating(true);
 
-      // await axios.get(`http://localhost:8081/updater/${subreddit}`);
+      await axios.get(`http://localhost:8081/updater/${subreddit}`);
 
-      // setUpdating(false);
+      setUpdating(false);
       setRetrieving(true);
 
       let response = await axios.get("http://localhost:8080/posts");

@@ -1,0 +1,2 @@
+2025-01-22 12:50:26 - INFO - Posts have been fetched successfully in getPosts()
+2025-01-22 12:50:26 - INFO - Upvotes have been fetched in getAllUpvotes()
