@@ -74,7 +74,7 @@ const Chatbot = () => {
           ) : (
             <ul className="p-2 animate-show">
               {messages.map((message, index) => (
-                <li className="flex flex-col">
+                <li className="flex flex-col" key={index}>
                   <p
                     className={"font-bold " + (message.isUser ? "ml-auto" : "")}
                   >
