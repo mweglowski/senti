@@ -15,7 +15,7 @@ const HomePage = () => {
   const [error, setError] = useState<string | null>(null);
   const [updating, setUpdating] = useState(false);
   const [retrieving, setRetrieving] = useState(false);
-  const [isChatbotDisplayed, setChatbotDisplay] = useState(true);
+  const [isChatbotDisplayed, setChatbotDisplay] = useState(false);
 
   const posts = useSelector((state: RootState) => state.posts.posts);
   const isUserLoggedIn = useSelector(
@@ -88,13 +88,13 @@ const HomePage = () => {
           <div className="flex justify-between mt-[20px]">
             <button
               onClick={() => dispatch(closeModal())}
-              className="border-black px-6 rounded-md duration-300 hover:opacity-80 py-3 border"
+              className="border-black px-6 rounded-md duration-300 hover:opacity-80 py-3 border animate-show"
             >
               Cancel
             </button>
             <button
               onClick={deletePost}
-              className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border"
+              className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border animate-show"
             >
               Delete
             </button>
@@ -169,13 +169,13 @@ const HomePage = () => {
         {isChatbotDisplayed && <Chatbot />}
         <button
           onClick={() => setChatbotDisplay((prevDisplay) => !prevDisplay)}
-          className="mx-auto my-2 py-2 px-5 border rounded-md border-black duration-300 hover:opacity-50"
+          className="mx-auto my-2 py-2 px-5 border rounded-md border-black duration-300 hover:opacity-50 animate-show"
         >
           Chatbot
         </button>
       </div>
 
-      <div className="border rounded-md border-black overflow-hidden flex">
+      <div className="border rounded-md border-black overflow-hidden flex animate-show">
         <input
           ref={subredditInputRef}
           placeholder="Search for subreddit"
@@ -189,18 +189,18 @@ const HomePage = () => {
         </button>
       </div>
 
-      {error && <p className="text-red-600 mx-auto my-4">{error}</p>}
+      {error && <p className="text-red-600 mx-auto my-4 animate-show">{error}</p>}
 
       {updating ? (
-        <p className="mx-auto my-4">Updating database...</p>
+        <p className="mx-auto my-4 animate-show">Updating database...</p>
       ) : (
-        retrieving && <p className="mx-auto my-4">Retrieving posts...</p>
+        retrieving && <p className="mx-auto my-4 animate-show">Retrieving posts...</p>
       )}
 
       {isUserLoggedIn && (
         <Link
           to="/post/new"
-          className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border mt-[20px] mx-auto mb-4 flex"
+          className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border mt-[20px] mx-auto mb-4 flex animate-show"
         >
           Add Post
         </Link>
@@ -208,17 +208,17 @@ const HomePage = () => {
 
       <div className="mt-[50px]">
         {posts.length === 0 && (
-          <p className="text-center text-[#6e6e6e]">
+          <p className="text-center text-[#6e6e6e] animate-show">
             There are not any posts at the moment.
           </p>
         )}
-        <ul className="flex flex-col gap-8">
+        <ul className="flex flex-col gap-8 mb-[50px]">
           {posts.map((post: any, index: number) => (
             <li className="relative">
               <Link to={"/post/" + post.id} key={post.id}>
-                <div className="border rounded-md border-black p-4 hover:opacity-60 duration-300">
-                  <h3 className="font-bold">{post.title}</h3>
-                  <p className="mt-3 text-[14px] text-[#6d6d6d]">
+                <div className="border rounded-md border-black p-4 hover:opacity-60 duration-300 animate-show">
+                  <h3 className="font-bold animate-show">{post.title}</h3>
+                  <p className="mt-3 text-[14px] text-[#6d6d6d] animate-show">
                     {post.content.length === 0
                       ? "No content"
                       : post.content.length < 300
@@ -228,29 +228,27 @@ const HomePage = () => {
                 </div>
               </Link>
 
-              {/* date */}
-              <div className="absolute -top-[21px] left-0 text-[14px] text-[#525252]">
+              <div className="absolute -top-[21px] left-0 text-[14px] text-[#525252] animate-show">
                 {post.createdAt.slice(0, 10)}
               </div>
 
-              {/* delete post */}
               {isUserLoggedIn && (
                 <button
                   onClick={() => handleDeletePost(post.id)}
-                  className="absolute top-1 right-1 flex"
+                  className="absolute top-1 right-1 flex animate-show"
                 >
                   <img
                     src={"/assets/images/delete.svg"}
                     alt="Delete Icon"
+                    className="animate-show"
                     width={20}
                   />
                 </button>
               )}
 
-              {/* upvote post */}
               <button
                 onClick={() => handleUpvotePost(post.id)}
-                className="absolute right-2 bottom-2 flex hover:opacity-50 duration-300 rounded-md p-1"
+                className="absolute right-2 bottom-2 flex hover:opacity-50 duration-300 rounded-md p-1 animate-show"
               >
                 <img
                   src={"/assets/images/upvote.svg"}

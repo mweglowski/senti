@@ -23,15 +23,30 @@ body {
 }
 
 ::-webkit-scrollbar {
-	@apply w-[6px] h-[12px];
+  @apply w-[6px] h-[12px];
+}
+::-webkit-scrollbar-track {
+  background: #e5e8ec;
+}
+::-webkit-scrollbar-thumb {
+  background: #0222bf;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply cursor-pointer;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(-10%) scale(0.6);
   }
-  ::-webkit-scrollbar-track {
-	background: #e5e8ec;
+  to {
+    opacity: 1;
+    transform: translateY(0%) scale(1);
   }
-  ::-webkit-scrollbar-thumb {
-	background: #0222bf;
-	border-radius: 6px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-	@apply cursor-pointer;
-  }
+}
+
+.animate-show {
+  animation: show 600ms ease-in-out;
+}

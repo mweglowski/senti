@@ -195,19 +195,19 @@ const PostPage = () => {
 
   return (
     <div className="mt-[80px] w-full max-w-[600px] mx-auto p-4">
-      <div className="text-[14px] text-[#525252] mb-[20px]">
+      <div className="text-[14px] text-[#525252] mb-[20px] animate-show">
         {post.createdAt?.slice(0, 10) || "Unknown Date"}
       </div>
       <div className="mb-[20px]">
-        <h3 className="font-bold text-xl mb-[20px]">{post.title}</h3>
-        <p className="mt-3 text-[14px] text-[#545454] hyphens-auto">
+        <h3 className="font-bold text-xl mb-[20px] animate-show">{post.title}</h3>
+        <p className="mt-3 text-[14px] text-[#545454] hyphens-auto animate-show">
           {post.content && post.content.length > 0
             ? post.content
             : "No content"}
         </p>
         <button
           onClick={() => handleUpvotePost(post.id)}
-          className="mt-[30px] mb-[10px] flex hover:opacity-50 duration-300 rounded-md p-1"
+          className="mt-[30px] mb-[10px] flex hover:opacity-50 duration-300 rounded-md p-1 animate-show"
         >
           <img src={"/assets/images/upvote.svg"} alt="Upvote Icon" width={20} />
           <p className="font-bold text-[14px]">
@@ -219,7 +219,7 @@ const PostPage = () => {
       {isUserLoggedIn && (
         <button
           onClick={() => setModalOpen(true)}
-          className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border mt-[20px] mx-auto mb-4 flex"
+          className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border mt-[20px] mx-auto mb-4 flex animate-show"
         >
           Add Comment
         </button>
@@ -229,7 +229,7 @@ const PostPage = () => {
         <div>
           <ul className="flex flex-col gap-6">
             {comments.map((comment, index) => (
-              <li key={index} className="flex flex-col rounded-md relative">
+              <li key={index} className="flex flex-col rounded-md relative animate-show">
                 <p className="text-sm text-gray-500">
                   {comment.createdAt.slice(0, 10)}
                 </p>
@@ -257,12 +257,12 @@ const PostPage = () => {
           </ul>
         </div>
       ) : (
-        <p className="text-gray-500 mt-4">This post has no comments.</p>
+        <p className="text-gray-500 mt-4 animate-show text-center">This post has no comments.</p>
       )}
 
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center"
+          className="fixed inset-0  bg-black bg-opacity-50 flex items-center justify-center animate-show z-50"
           onClick={() => setModalOpen(false)}
         >
           <div
@@ -273,19 +273,19 @@ const PostPage = () => {
               value={newCommentContent}
               onChange={(e) => setNewCommentContent(e.target.value)}
               placeholder="Write your comment here..."
-              className="input border border-black rounded-md"
+              className="input border border-black rounded-md animate-show"
               rows={4}
             />
             <div className="flex justify-between mt-2">
               <button
                 onClick={() => setModalOpen(false)}
-                className="border border-black px-6 rounded-md duration-300 hover:opacity-80"
+                className="border border-black px-6 rounded-md duration-300 hover:opacity-80 animate-show"
               >
                 Cancel
               </button>
               <button
                 onClick={handleAddComment}
-                className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3"
+                className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 animate-show"
               >
                 Confirm
               </button>

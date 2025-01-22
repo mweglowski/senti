@@ -33,13 +33,13 @@ export const Navbar = () => {
           <div className="flex justify-between mt-[20px]">
             <button
               onClick={() => dispatch(closeModal())}
-              className="border-black px-6 rounded-md duration-300 hover:opacity-80 py-3 border"
+              className="border-black px-6 rounded-md duration-300 hover:opacity-80 py-3 border animate-show"
             >
               Cancel
             </button>
             <button
               onClick={logUserOut}
-              className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border"
+              className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border animate-show"
             >
               Log Out
             </button>
@@ -75,13 +75,13 @@ export const Navbar = () => {
           <div className="flex justify-between mt-[20px]">
             <button
               onClick={() => dispatch(closeModal())}
-              className="border-black px-6 rounded-md duration-300 hover:opacity-80 py-3 border"
+              className="border-black px-6 rounded-md duration-300 hover:opacity-80 py-3 border animate-show"
             >
               Cancel
             </button>
             <button
               onClick={deleteAccount}
-              className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border"
+              className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border animate-show"
             >
               Delete
             </button>
@@ -95,7 +95,7 @@ export const Navbar = () => {
     <div className="fixed top-0 w-full border-b border-black bg-[#ffffffe7] z-10">
       <div className="flex justify-between items-center">
         <Link to="/">
-          <p className="logo-title px-6">Senti</p>
+          <p className="logo-title px-6 animate-show">Senti</p>
         </Link>
 
         <div
@@ -103,21 +103,21 @@ export const Navbar = () => {
           onMouseLeave={() => setAccountDropdownVisibiliy(false)}
           className="relative py-4 px-8 "
         >
-          <p className="cursor-pointer">Account</p>
+          <p className="cursor-pointer animate-show">Account</p>
 
           {accountDropdownVisibility && (
-            <div className="absolute -left-[80px] top-[56px] border-black border rounded-b-md p-4 w-[180px] flex flex-col gap-2 bg-[#ffffffe7]">
+            <div className="absolute -left-[80px] top-[56px] border-black border rounded-b-md p-4 w-[180px] flex flex-col gap-2 bg-[#ffffffe7] animate-show">
               {!isUserLoggedIn ? (
                 <>
                   <Link
                     to="/login"
-                    className="hover:text-[#0309c5] duration-300"
+                    className="hover:text-[#0309c5] duration-300 animate-show"
                   >
                     Log In
                   </Link>
                   <Link
                     to="/signup"
-                    className="hover:text-[#0309c5] duration-300"
+                    className="hover:text-[#0309c5] duration-300 animate-show"
                   >
                     Sign Up
                   </Link>
@@ -126,13 +126,13 @@ export const Navbar = () => {
                 <>
                   <button
                     onClick={handleLogOut}
-                    className="hover:text-[#0309c5] duration-300 text-left"
+                    className="hover:text-[#0309c5] duration-300 text-left animate-show"
                   >
                     Log Out
                   </button>
                   <button
                     onClick={handleDeleteAccount}
-                    className="hover:text-[#0309c5] duration-300 text-left"
+                    className="hover:text-[#0309c5] duration-300 text-left animate-show"
                   >
                     Delete Account
                   </button>

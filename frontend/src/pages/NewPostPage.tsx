@@ -30,6 +30,7 @@ const NewPostPage = () => {
 
     if (title.trim().length === 0 || content.trim().length === 0) {
       setError("Both fields should not be empty.");
+      return;
     }
 
     try {
@@ -59,7 +60,7 @@ const NewPostPage = () => {
     <div className="mt-[150px] flex flex-col">
       <p
         className={
-          "text-red-600 text-center h-[30px] " + (error === "" && "opacity-0")
+          "text-red-600 text-center h-[30px] animate-show " + (error === "" && "opacity-0")
         }
       >
         {error}
@@ -69,19 +70,19 @@ const NewPostPage = () => {
         <input
           ref={titleInputRef}
           placeholder="Title"
-          className="input border border-black rounded-md"
+          className="input border border-black rounded-md animate-show"
         />
         <textarea
           ref={contentInputRef}
           placeholder="Content"
-          className="input border border-black rounded-md"
+          className="input border border-black rounded-md animate-show"
           rows={8}
         />
       </div>
 
       <button
         onClick={handleAddPost}
-        className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border mt-[20px] mx-auto"
+        className="text-white border-black bg-[#0309c5] px-6 rounded-md duration-300 hover:opacity-80 py-3 border mt-[20px] mx-auto animate-show"
       >
         Confirm
       </button>

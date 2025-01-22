@@ -15,12 +15,12 @@ const Modal = () => {
   return (
     <>
       <div
-        className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40"
+        className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 animate-show"
         onClick={() => dispatch(closeModal())}
       ></div>
 
       <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-md shadow-md z-50 w-[90%] max-w-[400px] border border-black">
-        {title && <h2 className="text-xl font-bold mb-4">{title}</h2>}
+        {title && <h2 className="text-xl font-bold mb-4 animate-show">{title}</h2>}
         <div>{content}</div>
       </div>
     </>
